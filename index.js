@@ -6,7 +6,7 @@ var pollingtoevent = require("polling-to-event");
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
-    homebridge.registerAccessory("homebridge-http", "Http", HttpAccessory);
+    homebridge.registerAccessory("homebridge-esp1", "Http", HttpAccessory);
 };
 
 
@@ -46,7 +46,7 @@ function HttpAccessory(log, config) {
         var statusemitter = pollingtoevent(function (done) {
             that.httpRequest(powerurl, "", "GET", that.username, that.password, that.sendimmediately, function (error, response, body) {
                 if (error) {
-                    that.log("HTTP get power function failed: %s", error.message);
+                    that.log("esp1 get power function failed: %s", error.message);
                     try {
                         done(new Error("Network failure that must not stop homebridge!"));
                     } catch (err) {
@@ -120,7 +120,7 @@ function HttpAccessory(log, config) {
         var levelemitter = pollingtoevent(function (done) {
             that.httpRequest(brightnessurl, "", "GET", that.username, that.password, that.sendimmediately, function (error, response, responseBody) {
                 if (error) {
-                    that.log("HTTP get power function failed: %s", error.message);
+                    that.log("esp1 get power function failed: %s", error.message);
                     return;
                 } else {
                     done(null, responseBody);
@@ -188,10 +188,10 @@ HttpAccessory.prototype = {
 
             this.httpRequest(url, body, this.http_method, this.username, this.password, this.sendimmediately, function (error, response, responseBody) {
                 if (error) {
-                    this.log("HTTP set power function failed: %s", error.message);
+                    this.log("esp1 set power function failed: %s", error.message);
                     callback(error);
                 } else {
-                    this.log("HTTP set power function succeeded!");
+                    this.log("esp1 set power function succeeded!");
                     callback();
                 }
             }.bind(this));
@@ -212,7 +212,7 @@ HttpAccessory.prototype = {
 
         this.httpRequest(url, "", "GET", this.username, this.password, this.sendimmediately, function (error, response, responseBody) {
             if (error) {
-                this.log("HTTP get power function failed: %s", error.message);
+                this.log("esp1 get power function failed: %s", error.message);
                 callback(error);
             } else {
                 var binaryState;
@@ -280,10 +280,10 @@ HttpAccessory.prototype = {
 
             this.httpRequest(url, "", this.http_brightness_method, this.username, this.password, this.sendimmediately, function (error, response, body) {
                 if (error) {
-                    this.log("HTTP brightness function failed: %s", error);
+                    this.log("esp1 brightness function failed: %s", error);
                     callback(error);
                 } else {
-                    this.log("HTTP brightness function succeeded!");
+                    this.log("esp1 brightness function succeeded!");
                     callback();
                 }
             }.bind(this));
