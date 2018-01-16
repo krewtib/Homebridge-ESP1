@@ -1,4 +1,4 @@
-# modified homebridge-esp1 for use with esp8266 server
+# modified homebridge-http for use with esp8266 server
 
 # homebridge-esp1
 
