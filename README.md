@@ -40,13 +40,13 @@ Configuration sample:
 
  ```
 "accessories": [
-       {"accessory": "Http",
+       {"accessory": "esp1",
         "name": "kerze",
         "on_url": "http://192.168.0.158/servo?value=190",
         "off_url": "http://192.168.0.158/servo?value=195", 
         "http_method": "GET"
         },
-        {"accessory": "Http",
+        {"accessory": "esp1",
          "name": "zeit",
          "on_url": "http://192.168.0.158/servo?value=191",
          "off_url": "http://192.168.0.158/servo?value=195",         
