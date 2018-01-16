@@ -2,7 +2,7 @@
 
 # homebridge-esp1
 
-Supports https devices on the HomeBridge Platform and provides a readable callback for getting the "On" and brightness level characteristics to Homekit.
+Supports Http devices on the HomeBridge Platform and provides a readable callback for getting the "On" and brightness level characteristics to Homekit.
 
 # Installation
 
