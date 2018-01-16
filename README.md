@@ -6,11 +6,11 @@ Supports Http devices on the HomeBridge Platform and provides a readable callbac
 
 # Installation
 
-1. Install homebridge using: npm install -g homebridge
-2. Install homebridge-esp1 using: npm install -g homebridge-esp1
+1. Install homebridge using: sudo npm install -g homebridge
+2. Install homebridge-esp1 using: sudo npm install -g homebridge-esp1
 3. Update your config.json file. 
    See sample-config.json in this repository for a sample. 
-
+4. Uninstall with sudo npm uninstall home-bridge-esp1 -g
 # Configuration
 
 This module has recently been updated to support an additional method to read the power state of the device and the brightness level. Specify the `status_url` in your config.json that returns the status of the device as an integer (0 = off, 1 = on). 
